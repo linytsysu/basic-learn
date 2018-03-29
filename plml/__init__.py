@@ -5,3 +5,5 @@ import linear_model
 import neighbors
 import metrics
 import datasets
+import preprocessing
+import model_selection
