@@ -3,7 +3,7 @@
 
 import numpy as np
 
-class KNeighborsRegressor:
+class KNeighborsClassifier:
     def __init__(self, n_neighbors=5, p=2):
         self.n_neighbors = n_neighbors
         self.p = p
@@ -29,9 +29,14 @@ class KNeighborsRegressor:
 
         y_pred = np.zeros(m_test)
         for i in range(m_test):
-            closest_idx = np.argsort(dist[i])
-            tmp = 0.0
-            for idx in closest_idx[:self.n_neighbors]:
-                tmp += self.y_train[idx]
-            y_pred[i] = tmp / self.n_neighbors
+            n_closest_idx = np.argsort(dist[i])[:self.n_neighbors]
+            count = 0
+            for idx in n_closest_idx:
+                tmp = 0
+                for idx2 in n_closest_idx:
+                    if self.y_train[idx] == self.y_train[idx2]:
+                        tmp += 1
+                if tmp > count:
+                    count = tmp
+                    y_pred[i] = self.y_train[idx]
         return y_pred
