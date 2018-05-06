@@ -10,3 +10,9 @@ def load_boston():
     X = data.iloc[:, :-1].values
     y = data.MEDV.values
     return X, y
+
+def load_iris():
+    data = pd.read_csv(os.path.join(os.path.dirname(__file__), './data/iris.csv'), header=0)
+    X = data.iloc[:, :-1].values
+    y = data.Name.values
+    return X, y
