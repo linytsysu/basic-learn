@@ -15,6 +15,7 @@ class LinearRegression:
             loss = hypothesis - y
             gradient = np.dot(X.T, loss)
             self.theta = self.theta - alpha / m * gradient
+        return self
 
     def predict(self, X):
         return np.dot(X, self.theta)

@@ -23,6 +23,7 @@ class GaussianNB:
             self.mu[i, :] = np.mean(X_i, axis=0)
             self.var[i, :] = np.var(X_i, axis=0)
             self.priors[i] = float(len(X_i)) / len(X)
+        return self
 
     def predict(self, X):
         n_samples = X.shape[0]

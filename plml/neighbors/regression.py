@@ -11,6 +11,7 @@ class KNeighborsRegressor:
     def fit(self, X, y):
         self.X_train = X
         self.y_train = y
+        return self
 
     def predict(self, X):
         m_train = self.X_train.shape[0]

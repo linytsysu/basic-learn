@@ -18,6 +18,7 @@ class LogisticRegression:
             loss = hypothesis - y
             gradient = np.dot(X.T, loss)
             self.theta = self.theta - alpha / n_sample * gradient
+        return self
 
     def predict(self, X):
         return self.sigmoid(np.dot(X, self.theta))

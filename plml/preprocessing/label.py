@@ -9,6 +9,7 @@ class LabelEncoder:
 
     def fit(self, y):
         self.classes_ = np.unique(y)
+        return self
 
     def fit_transform(self, y):
         self.classes_, y = np.unique(y, return_inverse=True)
