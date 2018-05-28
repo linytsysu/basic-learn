@@ -10,10 +10,12 @@ import plml
 
 X, y = plml.datasets.load_boston()
 
-scaler = plml.preprocessing.MinMaxScaler()
-X = scaler.fix_transform(X)
-
 X_train, X_test, y_train, y_test = plml.model_selection.train_test_split(X, y, test_size=0.2, random_state=999)
+
+scaler = plml.preprocessing.MinMaxScaler()
+X_train = scaler.fit_transform(X_train)
+
+X_test = scaler.fit_transform(X_test)
 
 X_train_with_bias = np.c_[np.ones((len(X_train), 1)), X_train]
 X_test_with_bias = np.c_[np.ones((len(X_test), 1)), X_test]

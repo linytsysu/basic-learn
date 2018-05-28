@@ -20,7 +20,7 @@ class MinMaxScaler:
         data_max = X.max(axis=0)
         data_range = data_max - data_min
         self.scale_ = (self.feature_range[1] - self.feature_range[0]) / _handle_zeros_in_scale(data_range)
-        self.min_ =  self.feature_range[0] - data_min * self.scale_
+        self.min_ = self.feature_range[0] - data_min * self.scale_
         return self
 
 
