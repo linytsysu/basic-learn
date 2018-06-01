@@ -23,7 +23,6 @@ class MinMaxScaler:
         self.min_ = self.feature_range[0] - data_min * self.scale_
         return self
 
-
     def transform(self, X):
         X *= self.scale_
         X += self.min_
