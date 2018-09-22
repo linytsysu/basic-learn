@@ -11,7 +11,7 @@ basic-learn is a Python module which includes basic implementation of machine le
 
 + formula:
 
-    <img src="https://latex.codecogs.com/svg.latex?\theta_i&space;=&space;\theta_i&space;-&space;\alpha\frac{1}{m}\sum\limits_{j=0}^{m}(h_\theta(x_0^{(j)},&space;x_1^{(j)},&space;\ldots,&space;x_n^{(j)})&space;-&space;y_j)x_i^{(j)}" title="\theta_i = \theta_i - \alpha\frac{1}{m}\sum\limits_{j=0}^{m}(h_\theta(x_0^{(j)}, x_1^{(j)}, \ldots, x_n^{(j)}) - y_j)x_i^{(j)}" />
+    <img src="https://latex.codecogs.com/svg.latex?%5Ctheta_i%20%3D%20%5Ctheta_i%20-%20%5Calpha%5Cfrac%7B1%7D%7Bm%7D%5Csum%5Climits_%7Bj%3D1%7D%5E%7Bm%7D%28h_%5Ctheta%28%5Cboldsymbol%7Bx%7D_j%29%20-%20y_j%29x_i%5E%7Bj%7D" title="\theta_i = \theta_i - \alpha\frac{1}{m}\sum\limits_{j=1}^{m}(h_\theta(\boldsymbol{x}_j) - y_j)x_i^{j}" />
 
 + code:
 
