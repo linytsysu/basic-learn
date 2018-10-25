@@ -1,17 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import numpy as np
-import numbers
-import warnings
-
-def check_random_state(seed):
-    if seed is None or seed is np.random:
-        return np.random.mtrand._rand
-    if isinstance(seed, (numbers.Integral, np.integer) ):
-        return np.random.RandomState(seed)
-    if isinstance(seed, np.random.RandomState):
-        return seed
+from ..utils import check_random_state
 
 def safe_indexing(X, indices):
     if hasattr(X, "iloc"):
@@ -25,7 +15,6 @@ def safe_indexing(X, indices):
             return X[indices]
     else:
         return [X[idx] for idx in indices]
-
 
 
 def train_test_split(X, y, test_size=0.25, random_state=None):

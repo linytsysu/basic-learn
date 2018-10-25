@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
+import numbers
 
 def _is_arraylike(x):
     return (hasattr(x, '__len__') or
@@ -23,3 +24,11 @@ def _num_samples(x):
         return x.shape[0]
     else:
         return len(x)
+
+def check_random_state(seed):
+    if seed is None or seed is np.random:
+        return np.random.mtrand._rand
+    if isinstance(seed, (numbers.Integral, np.integer) ):
+        return np.random.RandomState(seed)
+    if isinstance(seed, np.random.RandomState):
+        return seed
