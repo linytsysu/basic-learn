@@ -12,15 +12,19 @@ def _init_centroids(X, k, init, random_state=None):
         seeds = random_state.permutation(n_samples)[:k]
         centers = X[seeds]
     if init == 'k-means++':
-        pass
-        # @todo
-        # centers = np.empty((k, n_features), dtype=X.dtype)
-        # center_id = random_state.randint(n_samples)
-        # centers[0] = X[center_id]
+        centers = np.empty((k, n_features), dtype=X.dtype)
+        center_id = random_state.randint(n_samples)
+        centers[0] = X[center_id]
 
-        # distances = _euclidean_distances(X, centers[0])
-        # for i in range(1, k):
-        #     pass
+        closest_distances = _euclidean_distances(X, centers[0])
+        current_pot = closest_distances.sum()
+        for i in range(1, k):
+            rand_val = random_state.random_sample() * current_pot
+            candidate_id = np.searchsorted(np.cumsum(closest_distances), rand_val)
+            distance_to_candidate = _euclidean_distances(X, X[candidate_id])
+            closest_distances = np.minimum(closest_distances, distance_to_candidate)
+            current_pot = closest_distances.sum()
+            centers[i] = X[candidate_id]
     return centers
 
 def _euclidean_distances(X, y):
