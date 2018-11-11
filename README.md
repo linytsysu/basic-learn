@@ -16,7 +16,7 @@ basic-learn is a Python module which includes basic implementation of machine le
 
 #### Nearest Neighbors
 
-+ [k nearest neighbors](https://linytsysu.github.io/2018/09/08/ml-knn.html): [neighbors/](bsml/naive_bayes/)
++ [k nearest neighbors](https://linytsysu.github.io/2018/09/08/ml-knn.html): [neighbors/](bsml/neighbors/)
 
 #### Clustering
 
