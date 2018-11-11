@@ -4,6 +4,9 @@
 import numpy as np
 
 class Perceptron:
+    '''
+    perceptron algorithm's dual form
+    '''
     def __init__(self):
         pass
 
